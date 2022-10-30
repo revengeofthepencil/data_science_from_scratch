@@ -11,10 +11,11 @@ def calc_new_abv(tsp_water, oz_whiskey, init_abv):
 
 
 amt_glass_oz = 1.5
-pct_alc = 100
-tsp_water = .5
+pct_alc = 60
+tsp_water = 1.5
 new_abv = calc_new_abv(tsp_water, amt_glass_oz, pct_alc)
-print(f'amt_glass_oz = {amt_glass_oz}, abv/proof to start = {pct_alc}/{(pct_alc * 2)}. tsp_water = {tsp_water}, new abv/proof = {new_abv}/{(new_abv * 2)}')
+new_proof = new_abv * 2
+print(f'amt_glass_oz = {amt_glass_oz}, abv/proof to start = {pct_alc}/{(pct_alc * 2)}. tsp_water = {tsp_water}, new abv/proof = {new_abv}/{new_proof}')
 
 
 
