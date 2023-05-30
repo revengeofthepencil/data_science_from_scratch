@@ -11,6 +11,8 @@ plt.plot(xs, variance,     'g-',  label='variance')    # green solid line
 plt.plot(xs, bias_squared, 'r-.', label='bias^2')      # red dot-dashed line
 plt.plot(xs, total_error,  'b:',  label='total error') # blue dotted line
 
+
+
 # Because we've assigned labels to each series,
 # we can get a legend for free (loc=9 means "top center")
 plt.legend(loc=9)
