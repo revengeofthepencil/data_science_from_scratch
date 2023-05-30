@@ -1,7 +1,8 @@
 import math
-from typing import List
+from typing import List, Tuple
 
 """
+*** Part 1: Vectors ***
 vectors are points in some finite-dimensional space
 """
 
@@ -105,3 +106,41 @@ dist2 = [3, 4]
 distanceBetween = distance(dist1, dist2)  
 distanceBetweenMag = distance_mag(dist1, dist2)  
 print(f'distanceBetween {dist1} and {dist2} = {distanceBetween}. distanceBetweenMag = {distanceBetweenMag}')
+
+"""
+*** Part 2: Matrices ***
+A matrix is a two-dimensional collection of numbers. We will represent 
+matrices as lists of lists, with each inner list having the same size
+and representing a row of the matrix.
+"""
+
+# Another type alias
+Matrix = List[List[float]]
+
+A = [[1, 2, 3],  # A has 2 rows and 3 columns
+     [4, 5, 6]]
+
+B = [[1, 2],     # B has 3 rows and 2 columns
+     [3, 4],
+     [5, 6]]
+
+
+def shape(A: Matrix) -> Tuple[int, int]:
+    """Returns (# of rows of A, # of columns of A)"""
+    num_rows = len(A)
+    num_cols = len(A[0]) if A else 0   # number of elements in first row
+    return num_rows, num_cols
+
+assert shape([[1, 2, 3], [4, 5, 6]]) == (2, 3)  # 2 rows, 3 columns
+
+def get_row(A: Matrix, i: int) -> Vector:
+    """Returns the i-th row of A (as a Vector)"""
+    return A[i]             # A[i] is already the ith row
+
+def get_column(A: Matrix, j: int) -> Vector:
+    """Returns the j-th column of A (as a Vector)"""
+    return [A_i[j]          # jth element of row A_i
+            for A_i in A]   # for each row A_i
+
+
+
