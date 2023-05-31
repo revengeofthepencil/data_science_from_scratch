@@ -1,5 +1,5 @@
 import math
-from typing import List, Tuple
+from typing import List, Tuple, Callable
 
 """
 *** Part 1: Vectors ***
@@ -143,4 +143,31 @@ def get_column(A: Matrix, j: int) -> Vector:
             for A_i in A]   # for each row A_i
 
 
+print(f'first column of {A} = {get_column(A, 0)}')
+print(f'second row of {B} = {get_row(B, 1)}')
+
+def make_matrix(num_rows: int,
+                num_cols: int,
+                entry_fn: Callable[[int, int], float]) -> Matrix:
+    """
+    Returns a num_rows x num_cols matrix
+    whose (i,j)-th entry is entry_fn(i, j)
+    """
+    return [[entry_fn(i, j)             # given i, create a list
+             for j in range(num_cols)]  #   [entry_fn(i, 0), ... ]
+            for i in range(num_rows)]   # create one list for each i
+
+def identity_matrix(n: int) -> Matrix:
+    """Returns the n x n identity matrix"""
+    return make_matrix(n, n, lambda i, j: 1 if i == j else 0)
+
+"""
+Given this function, you could make a 5 × 5 identity matrix
+(with 1s on the diagonal and 0s elsewhere) like so:
+"""
+assert identity_matrix(5) == [[1, 0, 0, 0, 0],
+                              [0, 1, 0, 0, 0],
+                              [0, 0, 1, 0, 0],
+                              [0, 0, 0, 1, 0],
+                              [0, 0, 0, 0, 1]]
 
