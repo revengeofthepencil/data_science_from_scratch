@@ -12,17 +12,30 @@ parent_dir = Path(current_path).parent
 sys.path.append(os.path.join(parent_dir, "ch04"))
 from linear_algebra import sum_of_squares
 
+def get_num_friends_hard_coded():
+    return [100.0,49,41,40,25,21,21,19,19,18,18,16,15,15,15,
+            15,14,14,13,13,13,13,12,12,11,10,10,10,10,10,10,10,10,
+            10,10,10,10,10,10,10,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,9,
+            9,9,8,8,8,8,8,8,8,8,8,8,8,8,8,7,7,7,7,7,7,7,7,7,7,7,7,
+            7,7,7,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,5,5,
+            5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,4,4,4,4,4,4,4,4,4,4,4,4,
+            4,4,4,4,4,4,4,4,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
+            3,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,1,1,1,1,1,1,1,1,1,
+            1,1,1,1,1,1,1,1,1,1,1,1]
 
-num_friends = []
+def get_random_num_friends():
+    random_num_friends = []
 
-# most people fall between 1-15 friends
-for i in range(150):
-    num_friends.append(random.randint(1, 15))
+    # most people fall between 1-15 friends
+    for i in range(150):
+        random_num_friends.append(random.randint(1, 15))
 
-for i in range(54):
-    num_friends.append(random.randint(1, 100))
+    for i in range(54):
+        random_num_friends.append(random.randint(1, 100))
+    return random_num_friends
 
 
+num_friends = get_num_friends_hard_coded()
 num_points = len(num_friends)
 largest_value = max(num_friends)            # 100
 smallest_value = min(num_friends)           # 1
