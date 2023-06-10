@@ -129,3 +129,15 @@ def standard_deviation(xs: List[float]) -> float:
 
 standard_deviation_friends = standard_deviation(num_friends)
 print(f'standard_deviation_friends = {standard_deviation_friends}')
+
+"""
+A more robust alternative computes the difference between the
+75th percentile value and the 25th percentile value:
+"""
+def interquartile_range(xs: List[float]) -> float:
+    """Returns the difference between the 75%-ile and the 25%-ile"""
+    return quantile(xs, 0.75) - quantile(xs, 0.25)
+
+
+interquartile_range_friends = interquartile_range(num_friends)
+print(f'interquartile_range_friends = {interquartile_range_friends}')
